@@ -1,19 +1,23 @@
 package org.basicTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.basicTest.Pages.DuckDuckMainPage;
-import org.fluentlenium.adapter.junit.FluentTest;
+import org.basicTest.Pages.Appointment;
+import org.basicTest.Pages.KatalonDemoHomePage;
+import org.basicTest.Pages.Login;
+import org.fluentlenium.adapter.junit.jupiter.FluentTest;
 import org.fluentlenium.core.annotation.Page;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chromium.ChromiumDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class SimpleTest extends FluentTest {
+
     @Page
-    DuckDuckMainPage duckDuckMainPage;
+    KatalonDemoHomePage katalonDemoHomePage;
+    @Page
+    Login loginPage;
+    @Page
+    Appointment appointment;
 
     @Override
     public WebDriver newWebDriver(){
@@ -22,14 +26,26 @@ public class SimpleTest extends FluentTest {
         return driver;
     }
 
-    @Test
-    public void titleOfDuckDuckGoShouldContainSearchQueryName() {
-        String searchPhrase = "searchPhrase";
 
-        goTo(duckDuckMainPage)
-                .typeSearchPhraseIn(searchPhrase)
-                .submitSearchForm()
-                .assertIsPhrasePresentInTheResults(searchPhrase);
+
+    @Test
+    @DisplayName("Simple test for check home page title and url")
+    public void testKatalonHomePage(){
+        goTo(katalonDemoHomePage)
+                .checkPageTitle()
+                .checkPageUrl();
+    }
+    @Test
+    @DisplayName("Simple Login Test for test katalon site")
+    public void loginKatalon(){
+        goTo(katalonDemoHomePage)
+                .clickOnBurgerMenu()
+                .clickOnLoginBtn();
+        loginPage.checkLoginPageUrl()
+        .copyUserNameAndPassword()
+        .inputUserNameAndPassword()
+        .clickOnLoginButton();
+        appointment.checkPageUrl();
     }
 
 }
