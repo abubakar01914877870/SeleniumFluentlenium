@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: org.basicTest.SimpleTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.834 s <<< FAILURE! - in org.basicTest.SimpleTest
+titleOfDuckDuckGoShouldContainSearchQueryName(org.basicTest.SimpleTest)  Time elapsed: 0.793 s  <<< ERROR!
+org.openqa.selenium.WebDriverException: 
+Browser failed to start, test [ titleOfDuckDuckGoShouldContainSearchQueryName(org.basicTest.SimpleTest) ] execution interrupted.
+Caused by: [ org.openqa.selenium.AcceptedW3CCapabilityKeys]
+Build info: version: '4.1.0', revision: '87802e897b'
+System info: host: 'SUNNY', ip: '192.168.1.165', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15.1'
+Driver info: driver.version: unknown
+	at org.basicTest.SimpleTest.newWebDriver(SimpleTest.java:18)
+Caused by: java.lang.ClassNotFoundException: org.openqa.selenium.AcceptedW3CCapabilityKeys
+	at org.basicTest.SimpleTest.newWebDriver(SimpleTest.java:18)
+
