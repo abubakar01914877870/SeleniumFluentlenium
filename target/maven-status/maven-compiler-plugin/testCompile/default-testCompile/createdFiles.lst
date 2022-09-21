@@ -1,3 +1,10 @@
-org\basicTest\AbstractChromeTest.class
+org\basicTest\Pages\History.class
+org\basicTest\Pages\Login.class
+org\basicTest\Hooks.class
+org\basicTest\Pages\Appointment.class
 org\basicTest\Pages\DuckDuckMainPage.class
-org\basicTest\SimpleTest.class
+org\basicTest\Pages\KatalonDemoHomePage.class
+org\basicTest\StepDefinitions\BaseTest.class
+org\basicTest\StepDefinitions\StepAppointment.class
+org\basicTest\runner\CucumberPerFeatureRunner.class
+org\basicTest\StepDefinitions\StepHomePage.class

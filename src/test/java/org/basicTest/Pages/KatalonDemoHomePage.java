@@ -18,6 +18,14 @@ public class KatalonDemoHomePage extends FluentPage {
     private FluentWebElement burgerMenuKatalonHomePage;
     @FindBy(xpath = "//li/a[text()='Login']")
     private FluentWebElement btnLogin;
+    @FindBy(xpath = "//li/a[text()='Home']")
+    private FluentWebElement burgerMenuHomeBtn;
+    @FindBy(xpath = "//li/a[text()='History']")
+    private FluentWebElement burgerMenuHistoryBtn;
+    @FindBy(xpath = "//li/a[text()='Profile']")
+    private FluentWebElement burgerMenuProfileBtn;
+    @FindBy(xpath = "//li/a[text()='Logout']")
+    private FluentWebElement burgerMenuLogoutBtn;
 
     public KatalonDemoHomePage clickOnMakeAppointmentPage(){
         btnMakeAppointment.click();
@@ -41,6 +49,32 @@ public class KatalonDemoHomePage extends FluentPage {
     public KatalonDemoHomePage clickOnLoginBtn(){
         await().until(btnLogin).clickable();
         btnLogin.click();
+        return this;
+    }
+    public KatalonDemoHomePage assertBurgerMenuItemsBeforeLogin(){
+        assertThat(btnLogin).isDisplayed();
+        assertThat(burgerMenuHomeBtn).isDisplayed();
+        return this;
+    }
+    public KatalonDemoHomePage assertBurgerMenuItemsAfterLogin(){
+        assertThat(burgerMenuHomeBtn.displayed()).isEqualTo(true);
+        assertThat(burgerMenuHistoryBtn.displayed()).isEqualTo(true);
+        assertThat(burgerMenuProfileBtn.displayed()).isEqualTo(true);
+        assertThat(burgerMenuLogoutBtn.displayed()).isEqualTo(true);
+        return this;
+    }
+    public KatalonDemoHomePage clickLogoutBtn(){
+        await().until(burgerMenuLogoutBtn).displayed();
+        burgerMenuLogoutBtn.click();
+        return this;
+    }
+    public KatalonDemoHomePage assertLogoutBtnNotPresent(){
+        //System.out.println(burgerMenuLogoutBtn.displayed());
+        assertThat(burgerMenuLogoutBtn.displayed()).isEqualTo(false);
+        return this;
+    }
+    public KatalonDemoHomePage clickHistory(){
+        burgerMenuHistoryBtn.click();
         return this;
     }
 }
