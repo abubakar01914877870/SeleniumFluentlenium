@@ -11,6 +11,7 @@ Feature: Test for Katalon website
     When I fill up userId and password
     And I click on login button
     Then I verify user successfully login
+
   Scenario: Check make an appointment functionality
     Given I go to katalon home page
     And I click on home page burger menu login button
@@ -20,6 +21,7 @@ Feature: Test for Katalon website
     When I fill up make appointment form
     And I click in book appointment button
     Then I check for appointment confirmation
+
   Scenario: Check number of menu items before login and after login
     Given I go to katalon home page
     When I click on home page burger menu
@@ -29,6 +31,7 @@ Feature: Test for Katalon website
     And I click on home page burger menu
     Then I check for menu items after login
 
+  @severity=blocker
   Scenario: Check history page and verify previously created appointment record
     Given I login katalon demo site
     When I fill up make appointment form
@@ -40,6 +43,12 @@ Feature: Test for Katalon website
     Then I check for previously created appointment record
 
   Scenario: Check logout functionality
+    Given I login katalon demo site
+    When I logout from katalon demo site
+    Then I verify user successfully logout
+
+  @severity=minor
+  Scenario: Check logout functionality duplicate
     Given I login katalon demo site
     When I logout from katalon demo site
     Then I verify user successfully logout

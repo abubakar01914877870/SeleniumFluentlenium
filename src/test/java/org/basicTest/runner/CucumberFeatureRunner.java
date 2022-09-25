@@ -16,14 +16,12 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
         monochrome = true,
         snippets = CAMELCASE,
         dryRun = false,
-        publish = true,
+        publish = false,
         plugin = {"pretty",
-                "html:target/cucumber-report/cucumber.html",
-                "json:target/cucumber-report/cucumber.json"
-
-        })
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
+)
 @NotThreadSafe
-public class CucumberPerFeatureRunner {
+public class CucumberFeatureRunner {
     @BeforeClass
     public static void setUpChrome() {
         WebDriverManager.chromedriver().setup();
